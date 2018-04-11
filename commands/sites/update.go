@@ -1,16 +1,17 @@
 package sites
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"os/exec"
 
-	"github.com/BurntSushi/toml"
 	"github.com/netlify/netlifyctl/commands/middleware"
 	"github.com/netlify/netlifyctl/context"
 	"github.com/netlify/open-api/go/models"
+	"github.com/pelletier/go-toml"
 	"github.com/spf13/cobra"
 )
 
@@ -160,7 +161,7 @@ func openEditor(site *models.Site) (*editableSite, error) {
 		return nil, nil
 	}
 
-	if _, err := toml.Decode(string(b), es); err != nil {
+	if err := toml.NewDecoder(bytes.NewReader(b)).Decode(es); err != nil {
 		return nil, err
 	}
 

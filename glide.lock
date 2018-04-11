@@ -1,5 +1,5 @@
-hash: 7d45421642e50711cb6925a6c00b2e8f7bca5f36c1ae0c9a091031beb6c09e4f
-updated: 2018-04-10T07:32:27.567685511-07:00
+hash: f83fb30e8a2bcfbb886a7c0fd72372ac38e2bad5352c869a805200fd5b30f186
+updated: 2018-04-11T12:00:17.822840973-07:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: ca5f9e638c83bac66bfac70ded5bded1503135a7
@@ -11,8 +11,6 @@ imports:
   - autorest/date
 - name: github.com/briandowns/spinner
   version: 48dbb65d7bd5c74ab50d53d04c949f20e3d14944
-- name: github.com/BurntSushi/toml
-  version: bbd5bb678321a0d6e58f1099321dfa73391c1b6f
 - name: github.com/cenkalti/backoff
   version: 61ba96c4d1002f22e06acb8e34a7650611125a63
 - name: github.com/dgrijalva/jwt-go
@@ -118,6 +116,8 @@ imports:
   version: 812e91dfbd64051c1ec72c48feda0278727e8a4e
   subpackages:
   - octokit
+- name: github.com/pelletier/go-toml
+  version: 66540cf1fcd2c3aee6f6787dfa32a6ae9a870f12
 - name: github.com/pkg/errors
   version: 816c9085562cd7ee03e7f8188a1cfd942858cded
 - name: github.com/PuerkitoBio/purell

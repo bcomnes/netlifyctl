@@ -1,7 +1,5 @@
 package: github.com/netlify/netlifyctl
 import:
-- package: github.com/BurntSushi/toml
-  version: v0.2.0
 - package: github.com/sirupsen/logrus
   version: v0.11.0
 - package: github.com/go-openapi/errors
@@ -35,6 +33,7 @@ import:
   subpackages:
   - autorest
 - package: github.com/pkg/errors
+- package: github.com/pelletier/go-toml
 testImport:
 - package: github.com/stretchr/testify
   subpackages:

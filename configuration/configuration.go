@@ -1,11 +1,10 @@
 package configuration
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 
-	"github.com/BurntSushi/toml"
+	"github.com/pelletier/go-toml"
 	"github.com/sirupsen/logrus"
 )
 
@@ -51,19 +50,16 @@ func Load(configFile string) (*Configuration, error) {
 	var c Configuration
 	c.root = pwd
 
-	fi, err := os.Stat(configFile)
+	f, err := os.Open(configFile)
 	if err != nil {
 		if os.IsNotExist(err) {
 			return &c, nil
 		}
 		return nil, err
 	}
+	defer f.Close()
 
-	if fi.IsDir() {
-		return nil, fmt.Errorf("%s cannot be a directory", configFile)
-	}
-
-	if _, err := toml.DecodeFile(configFile, &c); err != nil {
+	if err := toml.NewDecoder(f).Decode(&c); err != nil {
 		return nil, err
 	}
 
